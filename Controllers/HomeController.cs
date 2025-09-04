@@ -12,7 +12,9 @@ namespace CrudProjectOne.Controllers
         private readonly CandidateDbContext context=new CandidateDbContext();
         public ActionResult Index()
         {
-            return View();
+            List<CandidateDbModel> list =context.GetCandidateData();
+            return View(list);
+
         }
 
         public ActionResult AddData()
