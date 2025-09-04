@@ -48,4 +48,11 @@ end
 
 Exec UpdateCandidateData 3,'Yogesh','Yogesh@gmail.com','Noida'
 
-
+Create Procedure DeleteCandidateData
+(
+@Id bigint
+)
+as
+begin
+Delete from Candidate where Id=@Id
+end
