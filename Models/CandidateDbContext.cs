@@ -60,6 +60,17 @@ namespace CrudProjectOne.Models
             con.Close();
         }
 
+        public void DeleteData(int id)
+        {
+            SqlConnection con = new SqlConnection(myCon);
+            SqlCommand cmd = new SqlCommand("DeleteCandidateData", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", id);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
 
     }
 }

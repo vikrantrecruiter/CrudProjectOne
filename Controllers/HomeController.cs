@@ -58,6 +58,20 @@ namespace CrudProjectOne.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                context.DeleteData(id);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
