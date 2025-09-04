@@ -24,5 +24,13 @@ begin
 Insert into Candidate(Name,Email,Address) values(@Name,@Email,@Address)
 end
 
+Create Procedure ReadCadidateData
+as
+begin
+Select * from Candidate
+end
+
+Exec ReadCadidateData
+
 Exec InsertDataInCandidate 'Rohit','rohit@longfinch.com','Noida'
 
