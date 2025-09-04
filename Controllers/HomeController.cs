@@ -39,6 +39,25 @@ namespace CrudProjectOne.Controllers
 
         }
 
+        public ActionResult Update(int id)
+        {
+            List<CandidateDbModel> candidateList =context.GetCandidateData();
+
+            var row = candidateList.FirstOrDefault(c => c.Id == id);
+            return View(row);
+        }
+
+        [HttpPost]
+        public ActionResult Update(CandidateDbModel dbModel,int id)
+        {
+            if(ModelState.IsValid)
+            {
+                context.UpdateData(dbModel,id);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

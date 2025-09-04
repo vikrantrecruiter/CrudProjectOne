@@ -34,3 +34,18 @@ Exec ReadCadidateData
 
 Exec InsertDataInCandidate 'Rohit','rohit@longfinch.com','Noida'
 
+Create procedure UpdateCandidateData
+(
+@Id bigint,
+@Name nvarchar(50),
+@Email nvarchar(50),
+@Address nvarchar(100)
+)
+as
+begin
+Update Candidate set Name=@Name,Email=@Email,Address=@Address where Id=@Id;
+end
+
+Exec UpdateCandidateData 3,'Yogesh','Yogesh@gmail.com','Noida'
+
+
