@@ -58,7 +58,6 @@ namespace CrudProjectOne.Controllers
             return View();
         }
 
-        [HttpPost]
         public ActionResult Delete(int id)
         {
             if (ModelState.IsValid)
